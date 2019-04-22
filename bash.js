@@ -1,20 +1,21 @@
-const pwd = require('./pwd.js')
-const ls = require('./ls.js')
+const pwd = require('./pwd.js');
+const ls = require('./ls.js');
+const cat = require('./cat.js');
 
 process.stdout.write('prompt > ');
 process.stdin.on('data', (data) => {
-    const cmd = data.toString().trim();
+    data = data.toString().trim().split(' ');
+    const cmd = data[0];
+    const fileName = data[1];
     if (cmd === 'ls'){
         ls();
     }
     if (cmd === 'pwd'){
         pwd();
     }
-    process.stdout.write('\nprompt > ');
+    if (cmd === 'cat'){
+        cat(fileName);
+    }
 })
-
-
-//pwd()
-//ls()
 
 //question: why invoked?
