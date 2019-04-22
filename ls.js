@@ -1,5 +1,5 @@
 const fs = require('fs')
-const { readdir } = fs
+const { readdir } = fs //extracting readdir from fs object and assigning it to eponymous variable
 
 module.exports = function() {
   process.stdin.on('data', (data) => {
